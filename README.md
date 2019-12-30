@@ -24,7 +24,7 @@ This container can be used as a discovery scan agent.
 Pass the MySQL password and the phpipam agent key.
 
 ```bash
-$ docker run -ti -d -e PHPIPAM_AGENT_KEY=dummy-key -e MYSQL_ENV_MYSQL_PASSWORD=my-secret-pw --name ipam-agent --link phpipam-mysql:mysql pierrecdn/phpipam-agent
+$ docker run -ti -d -e PHPIPAM_AGENT_KEY=dummy-key -e MYSQL_ENV_MYSQL_PASSWORD=my-secret-pw --name ipam-agent --link phpipam-mysql:mysql phpipam-agent
 ```
 
 ### Run this container (Outside on remote location)
