@@ -19,12 +19,20 @@ This container can be used as a discovery scan agent.
 * For each subnet, enable scan & configure the remote agent by selecting a remote.
 ![config_subnet](https://user-images.githubusercontent.com/4225738/45190619-2ba94f00-b23f-11e8-9e45-b5e721c63d70.png)
 
-### Run this container
+### Run this container (On same machine)
 
 Pass the MySQL password and the phpipam agent key.
 
 ```bash
 $ docker run -ti -d -e PHPIPAM_AGENT_KEY=dummy-key -e MYSQL_ENV_MYSQL_PASSWORD=my-secret-pw --name ipam-agent --link phpipam-mysql:mysql pierrecdn/phpipam-agent
+```
+
+### Run this container (Outside on remote location)
+
+Pass the MySQL password and the phpipam agent key.
+
+```bash
+$ docker run -ti -d -e PHPIPAM_AGENT_KEY=dummy-key -e MYSQL_ENV_MYSQL_PASSWORD=my-secret-pw --name ipam-agent --add-host mysql:<mysql ip or fqdn> phpipam-agent
 ```
 
 Now, the discovery scans will be performed every 1mn by default.
