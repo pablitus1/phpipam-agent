@@ -41,6 +41,7 @@ RUN cp config.dist.php config.php && \
 # Setup crontab
 ENV CRONTAB_FILE=/etc/cron.d/phpipam
 RUN echo "00 * * * * /usr/local/bin/php /opt/phpipam-agent/index.php update > /proc/1/fd/1 2>/proc/1/fd/2" > ${CRONTAB_FILE} && \
+    echo "10 * * * * /usr/local/bin/php /opt/phpipam-agent/index.php discover > /proc/1/fd/1 2>/proc/1/fd/2" > ${CRONTAB_FILE} && \
     chmod 0644 ${CRONTAB_FILE} && \
     crontab ${CRONTAB_FILE}
 
